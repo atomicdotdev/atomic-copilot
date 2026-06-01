@@ -15,5 +15,6 @@ Every prompt should follow the intent-per-turn workflow:
 1. Create an intent: `atomic vault intent create --title "<short title>"`
 2. Define the problem — reframe solution-requests as problems
 3. Write the plan into the intent file before coding
-4. Execute the tasks
-5. Update the intent: `atomic vault intent update <ID> --status done`
+4. Run `atomic vault sync` after editing the intent file, and always before `intent show`/`update` (the CLI reads the DB, not the file; an unsynced `update` clobbers your edits)
+5. Execute the tasks
+6. Update the intent: `atomic vault sync` then `atomic vault intent update <ID> --status done`
