@@ -6,13 +6,13 @@ description: Inspect repository state and history with the Atomic VCS CLI — st
 # Working with Atomic VCS
 
 Atomic is the version control system for this repository — not Git. You and Atomic
-are a pair: **Copilot hooks record your work automatically with full AI provenance**
-(model, vendor, session, timing, the decision graph), and these commands let you
-**read that history back**. Use them to ground yourself in reality instead of guessing.
+are a pair: **hooks record your work automatically with full AI provenance** (model,
+tokens, cost, session, the decision graph), and these commands let you **read that
+history back**. Use them to ground yourself in reality instead of guessing.
 
-You do **not** run `atomic add` or `atomic record` — the hook system does that at
-session end. Everything in this skill is **read-only inspection**, safe to run at any
-point in a turn, as often as you like.
+You do **not** run `atomic add` or `atomic record` — the hook system does that at turn
+end. Everything in this skill is **read-only inspection**, safe to run at any point in
+a turn, as often as you like.
 
 ## The four commands
 
@@ -45,7 +45,7 @@ Short-format status codes (first column):
 | `P ` | Permissions changed | `??` | Untracked |
 
 Run `status` **before you start editing** (to see the starting point) and **before the
-session ends** (to confirm what your changes will record as).
+turn ends** (to confirm what your changes will record as).
 
 ## `atomic log` — change history
 
@@ -161,7 +161,7 @@ atomic log -n 20 -f json    # then inspect interesting ones:
 atomic change <hash> -a
 ```
 
-**Verify before the session ends**
+**Verify before the turn ends**
 ```bash
 atomic status -s            # confirm the set of files that will record
 atomic diff --stat          # confirm the size/shape of the change
