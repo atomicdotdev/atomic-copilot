@@ -23,6 +23,21 @@ else
   HOOKS_STATUS="FAILED — bundled hooks/atomic-hooks.json not found"
 fi
 
+# 1b. Copilot CLI user-level hooks → ~/.copilot/hooks/atomic.json
+#     The .github/hooks copy above serves the Copilot *cloud agent* (repo root,
+#     git-committed on the default branch). The Copilot *CLI* also loads
+#     user-level hooks from ~/.copilot/hooks/*.json — independent of git and of
+#     any single project — so install them there too. Records on sessionEnd.
+CLI_HOOKS_DIR="${COPILOT_HOME:-$HOME/.copilot}/hooks"
+if [ -f "$HOOKS_SRC" ]; then
+  mkdir -p "$CLI_HOOKS_DIR"
+  cp "$HOOKS_SRC" "$CLI_HOOKS_DIR/atomic.json"
+  CLI_HOOKS_STATUS="copied to $CLI_HOOKS_DIR/atomic.json"
+  echo "  cli hooks: copied atomic.json to $CLI_HOOKS_DIR/"
+else
+  CLI_HOOKS_STATUS="FAILED — bundled hooks/atomic-hooks.json not found"
+fi
+
 cat <<EOF
 
 ────────────────────────────────────────────────────────────
