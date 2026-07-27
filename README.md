@@ -2,6 +2,8 @@
 
 [Atomic VCS](https://atomic.dev) integration for [GitHub Copilot](https://github.com/features/copilot) (cloud agent + CLI).
 
+> **Definitive source:** this repository lives on Atomic storage at `https://atomic.atomic.storage/workspaces/oss/projects/atomic-copilot/code`. The GitHub repo is a mirror.
+
 Automatic turn recording with AI provenance, intent tracking, and knowledge graph skills.
 
 ## What it does

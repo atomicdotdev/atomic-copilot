@@ -4,33 +4,33 @@
     "sessionStart": [
       {
         "type": "command",
-        "bash": "test -d .atomic && atomic agent hooks copilot session-start || true",
+        "bash": "test -d .atomic || test -f .atomic-sandbox && atomic agent hooks copilot session-start || true",
         "timeoutSec": 30
       }
     ],
     "sessionEnd": [
       {
         "type": "command",
-        "bash": "test -d .atomic && atomic agent hooks copilot session-end || true",
+        "bash": "test -d .atomic || test -f .atomic-sandbox && atomic agent hooks copilot session-end || true",
         "timeoutSec": 30
       }
     ],
     "userPromptSubmitted": [
       {
         "type": "command",
-        "bash": "test -d .atomic && atomic agent hooks copilot user-prompt || true"
+        "bash": "test -d .atomic || test -f .atomic-sandbox && atomic agent hooks copilot user-prompt || true"
       }
     ],
     "postToolUse": [
       {
         "type": "command",
-        "bash": "test -d .atomic && atomic agent hooks copilot post-tool || true"
+        "bash": "test -d .atomic || test -f .atomic-sandbox && atomic agent hooks copilot post-tool || true"
       }
     ],
     "preToolUse": [
       {
         "type": "command",
-        "bash": "test -d .atomic && atomic agent hooks copilot pre-tool || true"
+        "bash": "test -d .atomic || test -f .atomic-sandbox && atomic agent hooks copilot pre-tool || true"
       }
     ]
   }
