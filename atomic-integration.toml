@@ -8,17 +8,9 @@ atomic = ">=0.11.0"
 [skills-source]
 package = "atomic-skills"
 
-[[skill]]
-src = "skills/atomic-vault/SKILL.md"
-dst = "~/.copilot/skills/atomic-vault/SKILL.md"
-
-[[skill]]
-src = "skills/atomic-vcs/SKILL.md"
-dst = "~/.copilot/skills/atomic-vcs/SKILL.md"
-
-[[skill]]
-src = "skills/code-intelligence/SKILL.md"
-dst = "~/.copilot/skills/code-intelligence/SKILL.md"
+[skills]
+install = "all"
+dst_pattern = "~/.copilot/skills/{name}/SKILL.md"
 
 [[repo-file]]
 src = "AGENTS.md"
